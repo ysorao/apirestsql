@@ -15,8 +15,10 @@ export const queries = {
     INNER JOIN DTS D ON A.TP_CONTR	= D.CODIGO AND D.INDICE= 'ContratoTrabajo'
     WHERE A.EMPLEADO = @id`,
   getInfoHabeasMenor: "SELECT * FROM InfoheonHabeasDataMenorEdad",
+
   createHabeas:
     "INSERT INTO infoheonHabeasData (documento, fecha, estado, ipAddress, usuario, nombreCompleto) VALUES (@documento, @fecha, @estado, @ipAddress, @usuario, @nombreCompleto)",
+    
   createHabeasMenor:
     "INSERT INTO infoheonHabeasDataMenorEdad (documento, fecha, estado, ipAddress, usuario, nombreCompleto) VALUES (@documento, @fecha, @estado, @ipAddress, @usuario, @nombreCompleto)",
 
@@ -32,7 +34,6 @@ export const queries = {
   createHijo:
 
   "INSERT INTO infoHeonHijos (docEmpleado, nombreHijo, fchNacHijo,  edadHijo ) VALUES (@identificacion, @nombreHijo, @fchNacHijo,  @edadHijo)",
-
 
 };
 
