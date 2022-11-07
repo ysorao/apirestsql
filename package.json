@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js --exec  babel-node",
-    "build": "babel src -d dist",
-    "start": "node dist"
+    "build": "babel src -d apiheon",
+    "start": "node apiheon"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",

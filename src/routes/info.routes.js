@@ -14,9 +14,9 @@ const verifyToken = ((req, res, next)=>{
         return
     }
     token = token.split(" ")[1]
-    console.log(token)
     if(token){
-        jwt.verify(token, 'secretkey', (error, decoded)=>{
+        console.log(token)
+        jwt.verify(token, process.env.SECRETKEY, (error, decoded)=>{
             if(error){
                 return res.json({
                     message: 'El token no es valido'
@@ -39,21 +39,21 @@ router.get('/token', verifyToken, (req, res)=>{
     })
 })
 
-router.get('/info', getInfo)
+router.get('/info',verifyToken, getInfo)
 
 router.get('/infoMD/:id', getInfoMDById)
 
-router.get('/infoHabeas', getInfoHabeas )
+router.get('/infoHabeas', verifyToken, getInfoHabeas )
 
-router.get('/infoHabeasMenor', getInfoHabeasMenor )
+router.get('/infoHabeasMenor', verifyToken, getInfoHabeasMenor )
 
-router.post('/createHabeas', createHabeas )
+router.post('/createHabeas', verifyToken, createHabeas )
 
-router.post('/createHabeasMenor', createHabeasMenor )
+router.post('/createHabeasMenor', verifyToken, createHabeasMenor )
 
-router.post('/createInfo', createInfo )
+router.post('/createInfo', verifyToken, createInfo )
 
-router.put('/updateHabeasMenor/:id', updateHabeasMenor)
+router.put('/updateHabeasMenor/:id', verifyToken, updateHabeasMenor)
 
 
 export default router
