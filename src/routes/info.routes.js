@@ -32,13 +32,6 @@ const verifyToken = ((req, res, next)=>{
 
 const router = Router()
 
-router.get('/token', verifyToken, (req, res)=>{
-    res.json({
-        message: "Token Access",
-        sendStatus: 200
-    })
-})
-
 router.get('/info',verifyToken, getInfo)
 
 router.get('/infoMD/:id', getInfoMDById)
